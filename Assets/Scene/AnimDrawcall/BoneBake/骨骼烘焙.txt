@@ -1,0 +1,29 @@
+
+
+实现原理: GPU蒙皮,  模型顶点受骨骼影响的矩阵变换放到 GPU中计算
+
+		蒙皮过程: rootTransform.worldToLocalMatrix * bone[i].localToWorldMatrix * SkinedMeshRender.bindPos[i] * vertex
+
+		  	vertex -- 模型空间顶点坐标,  VertexShader中传入的是 SkinedMeshRender 所在物体为根节点的 模型空间坐标系
+
+			bindPos[i] -- SkinedMeshRender.bindPos 存储着将 模型空间顶点变换到骨骼空间的矩阵
+
+			bone[i].localToWorldMatrix -- 骨骼空间内坐标 变换到世界空间
+
+			rootTransform.worldToLocalMatrix -- 世界空间坐标 变换到 模型空间
+
+
+		编辑器预处理:
+
+			1. rootTransform.worldToLocalMatrix * bone[i].localToWorldMatrix * SkinedMeshRender.bindPos[i] 值算好存储本地
+
+			2. 蒙皮时 每个顶点的骨骼权重  存储在 Mesh 的 uv1 和 uv2 通道中
+
+
+		注意点:
+
+			矩阵存在负数, 贴图需用 RGBAHalf格式;  要先存储字节文件, 然后运行时转成贴图传入(直接存成贴图没有负数)
+
+			蒙皮矩阵最后一行固定为 (0,0,0,1) 所以不用存, 只存前三行
+
+			

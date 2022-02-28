@@ -1,0 +1,10 @@
+NPOI.DLL				NPOI.POIFS				OLE2/ActiveX document properties library
+NPOI.DLL				NPOI.DDF				Microsoft Office Drawing read/write library
+NPOI.DLL				NPOI.HPSF				OLE2/ActiveX document read/write library
+NPOI.DLL				NPOI.HSSF				Microsoft Excel BIFF(Excel 97-2003, xls) format library
+NPOI.DLL				NPOI.SS					Excel common interface and Excel formula engine
+NPOI.DLL				NPOI.Util				base utility library, these classes can be used for other projects
+NPOI.OOXML.DLL			NPOI.XSSF				Excel 2007(xlsx) format library
+NPOI.OOXML.DLL			NPOI.XWPF				Word 2007(docx) format library
+NPOI.OpenXml4Net.DLL	NPOI.OpenXml4Net		OpenXml zip package library
+NPOI.OpenXmlFormats.DLL	NPOI.OpenXmlFormats		Microsoft Office OpenXml object relationship library
